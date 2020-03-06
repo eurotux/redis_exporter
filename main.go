@@ -145,6 +145,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	http.HandleFunc("/_/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(`ok`))
+	})
+	
 	log.Infof("Providing metrics at %s%s", *listenAddress, *metricPath)
 	log.Debugf("Configured redis addr: %#v", *redisAddr)
 	log.Fatal(http.ListenAndServe(*listenAddress, exp))
