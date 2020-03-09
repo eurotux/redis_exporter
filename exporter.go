@@ -197,6 +197,7 @@ func NewRedisExporter(serverArg interface{}, opts Options) (*Exporter, error) {
 			Namespace: opts.Namespace,
 			Name:      "exporter_scrape_duration_seconds",
 			Help:      "Durations of scrapes by the exporter",
+			ConstLabels: constLabels,
 		}),
 
 		targetScrapeRequestErrors: prometheus.NewCounter(prometheus.CounterOpts{
