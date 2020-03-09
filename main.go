@@ -150,6 +150,8 @@ func main() {
 				ConnectionTimeouts:  to,
 				MetricsPath:         *metricPath,
 				RedisMetricsOnly:    *redisMetricsOnly,
+				SetClientName:       *setClientName,
+				PingOnConnect:       *pingOnConnect,
 				Registry:            registry,
 			},
 		)
