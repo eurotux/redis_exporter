@@ -42,8 +42,9 @@ type serverInfo struct {
 type Exporter struct {
 	sync.Mutex
 
-	redisAddr string
-	namespace string
+	server      serverInfo
+	constLabels prometheus.Labels
+	namespace   string
 
 	totalScrapes              prometheus.Counter
 	scrapeDuration            prometheus.Summary
