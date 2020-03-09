@@ -135,7 +135,7 @@ func main() {
 		}
 		exp, err = NewRedisExporter(
 			server,
-			ExporterOptions{
+			Options{
 				Password:            *redisPwd,
 				Namespace:           *namespace,
 				ConfigCommandName:   *configCommand,
