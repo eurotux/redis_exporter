@@ -160,7 +160,7 @@ func newMetricDescr(namespace string, metricName string, docString string, label
 }
 
 // NewRedisExporter returns a new exporter of Redis metrics.
-func NewRedisExporter(redisURI string, opts Options) (*Exporter, error) {
+func NewRedisExporter(serverArg string, opts Options) (*Exporter, error) {
 	log.Debugf("NewRedisExporter options: %#v", opts)
 
 	var server serverInfo
