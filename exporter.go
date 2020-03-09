@@ -161,7 +161,7 @@ func newMetricDescr(namespace string, metricName string, docString string, label
 }
 
 // NewRedisExporter returns a new exporter of Redis metrics.
-func NewRedisExporter(serverArg string, opts Options) (*Exporter, error) {
+func NewRedisExporter(serverArg interface{}, opts Options) (*Exporter, error) {
 	log.Debugf("NewRedisExporter options: %#v", opts)
 
 	var server serverInfo
@@ -412,7 +412,7 @@ func NewRedisExporter(serverArg string, opts Options) (*Exporter, error) {
 		"up":                                   {txt: "Information about the Redis instance"},
 		"connected_clients_details":            {txt: "Details about connected clients", lbls: []string{"host", "port", "name", "age", "idle", "flags", "db", "cmd"}},
 	} {
-		e.metricDescriptions[k] = newMetricDescr(opts.Namespace, k, desc.txt, desc.lbls)
+		e.metricDescriptions[k] = newMetricDescr(opts.Namespace, k, desc.txt, desc.lbls, constLabels)
 	}
 
 	if e.options.MetricsPath == "" {
