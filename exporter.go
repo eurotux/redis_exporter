@@ -383,7 +383,7 @@ func NewRedisExporter(serverArg interface{}, opts Options) (*Exporter, error) {
 		e.metricMapGauges["total_system_memory"] = "total_system_memory_bytes"
 	}
 
-	e.metricDescriptions[k] = newMetricDescr(opts.Namespace, k, desc.txt, desc.lbls, constLabels)
+	e.metricDescriptions = map[string]*prometheus.Desc{}
 
 	for k, desc := range map[string]struct {
 		txt  string
